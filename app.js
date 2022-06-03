@@ -16,9 +16,16 @@ class App {
         this.blocks.push(new Block(i, j));
       }
     }
+
     this.bar = new Bar(100, this.canvas.width, this.canvas.height);
 
-    this.ball = new Ball(10, this.canvas.width, this.canvas.height, this.bar);
+    this.ball = new Ball(
+      10,
+      this.canvas.width,
+      this.canvas.height,
+      this.bar,
+      this.blocks
+    );
 
     const moveSpeed = 10;
 
@@ -45,10 +52,6 @@ class App {
   draw() {
     this.ctx.fillStyle = "#102330";
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-    this.blocks.forEach((block) => {
-      block.draw(this.ctx);
-    });
 
     this.bar.draw(this.ctx);
     this.ball.draw(this.ctx);
